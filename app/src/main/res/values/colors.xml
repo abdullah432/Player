@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--MxPlayer-->
+    <!--<color name="colorPrimary">#DDDDDD</color>-->
+    <!--<color name="colorPrimaryDark">#b5b5b5</color>-->
+    <!--<color name="colorAccent">#D81B60</color>-->
+
+    <color name="colorPrimary">#F3F3F3</color>
+    <color name="colorPrimaryDark">#b5b5b5</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="backgroundColor">#ffffff</color>
+
+    <color name="priTxtColor">#000000</color>
+    <color name="secTxtColor">#6B6B6B</color>
+    <color name="actionModeMenuIcon">#505a78</color>
+    <color name="blackColor">#000000</color>
+
+    <!--Item color-->
+    <color name="iconColor">#000</color>
+    
+    <color name="buttonPressed">#D5D5D5</color>
+    <color name="buttonNotPressed">@color/transparent</color>
+    <color name="transparent">@android:color/transparent</color>
+
+    <color name="layover_bg">@color/colorPrimary</color>
+    <color name="quantum_grey_600">#757575</color>
+
+    <!--VideoPlayerActivity StatusBar-->
+    <color name="TranslucentColor">#D0000000</color>
+</resources>

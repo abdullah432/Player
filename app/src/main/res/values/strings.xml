@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Player</string>
+    <string name="track_selection_title">Select Track</string>
+</resources>

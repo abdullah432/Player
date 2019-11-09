@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GeneralActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimary"
+        android:theme="@style/Theme.AppCompat.DayNight"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <View
+        android:id="@+id/gradientShadow"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_below="@+id/toolbar"
+        android:background="@drawable/toolbar_shadow"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_collapseMode="pin"
+        app:layout_constraintTop_toTopOf="@+id/themeLayout"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <RelativeLayout
+        android:id="@+id/themeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="@drawable/custom_ripple">
+
+        <LinearLayout
+            android:id="@+id/line1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dark Theme"
+                android:fontFamily="@font/roboto_regular"
+                android:textColor="@color/priTxtColor"
+                android:textSize="17sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="Reduce glare and improve night viewing" />
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/themeBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:layout_toEndOf="@+id/line1"
+            android:layout_toRightOf="@+id/line1"
+            android:layout_marginEnd="15dp" />
+
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@color/secTxtColor"
+        app:layout_constraintTop_toBottomOf="@+id/themeLayout"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <RelativeLayout
+        android:id="@+id/rememberLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/themeLayout"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="@drawable/custom_ripple">
+
+        <LinearLayout
+            android:id="@+id/line2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Remember Playback"
+                android:fontFamily="@font/roboto_regular"
+                android:textColor="@color/priTxtColor"
+                android:textSize="17sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="Remember my video playback position" />
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/rememberBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_toEndOf="@+id/line2"
+            android:layout_toRightOf="@+id/line2" />
+
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@color/secTxtColor"
+        app:layout_constraintTop_toBottomOf="@+id/rememberLayout"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <RelativeLayout
+        android:id="@+id/remove_rememberIconLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rememberLayout"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="@drawable/custom_ripple">
+
+        <LinearLayout
+            android:id="@+id/line3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Remove Playback Icon"
+                android:fontFamily="@font/roboto_regular"
+                android:textColor="@color/priTxtColor"
+                android:textSize="17sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="Remove Remember Playback Icon" />
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/rememberRemoveIconSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_toEndOf="@+id/line3"
+            android:layout_toRightOf="@+id/line3" />
+
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@color/secTxtColor"
+        app:layout_constraintTop_toBottomOf="@+id/remove_rememberIconLayout"
+        tools:layout_editor_absoluteX="0dp" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

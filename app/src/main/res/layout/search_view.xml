@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/searchLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="gone"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!--<View-->
+        <!--android:id="@+id/transparent_view"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:background="@color/search_layover_bg"-->
+        <!--android:visibility="visible"/>-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/search_top_bar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@android:color/white"
+            android:elevation="1dp">
+
+            <EditText
+                android:id="@+id/searchTextView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:hint="Search"
+                android:imeOptions="actionSearch"
+                android:inputType="textNoSuggestions"
+                android:paddingLeft="55dp"
+                android:paddingRight="65dp"
+                android:singleLine="true"
+                android:textColor="#212121"
+                android:textColorHint="#727272"
+                android:textSize="16sp"
+                android:paddingStart="55dp"
+                android:paddingEnd="65dp"
+                />
+
+            <ImageButton
+                android:id="@+id/backBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_back_black_24dp"/>
+
+            <ImageButton
+                android:id="@+id/action_voice_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/ic_voice"/>
+
+            <ImageButton
+                android:id="@+id/action_empty_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/ic_close_black_24dp"
+                android:visibility="gone"/>
+
+            <!--<View-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="1dip"-->
+                <!--android:layout_alignParentBottom="true"-->
+                <!--android:background="#fff"-->
+                <!--android:backgroundTint="#10000000"/>-->
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/nRF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No result found"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:background="@null"
+            android:layout_marginTop="20dp"
+            android:visibility="visible"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/suggestionRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</FrameLayout>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/remember_option"
+        android:icon="@drawable/ic_remember_black_24dp"
+        android:title="Remember Playback Position"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_search"
+        android:icon="@drawable/ic_search"
+        android:orderInCategory="100"
+        android:title="Search"
+        app:showAsAction="always|collapseActionView" />
+
+    <item
+        android:id="@+id/nav_nightModeID"
+        android:title="Night Mode"
+        android:checkable="true"/>
+
+
+    <item
+        android:title="Sort by..."
+        app:showAsAction="never">
+
+        <menu>
+            <group
+                android:id="@+id/sortGroup"
+                android:checkableBehavior="single">
+                <item
+                    android:id="@+id/folderSortID"
+                    android:title="Folders"/>
+
+                <item
+                    android:id="@+id/fileSortID"
+                    android:title="Files"/>
+            </group>
+
+        </menu>
+
+    </item>
+
+    <item
+        android:id="@+id/setting"
+        android:title="Setting"/>
+
+</menu>

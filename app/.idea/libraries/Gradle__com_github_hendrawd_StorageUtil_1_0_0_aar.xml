@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.hendrawd:StorageUtil:1.0.0@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c40c559112215bd29ba4125b4d475b83/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c40c559112215bd29ba4125b4d475b83/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.hendrawd/StorageUtil/1.0.0/44c7043e3d1a5afb1b998711f82dc728e7b6177/StorageUtil-1.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

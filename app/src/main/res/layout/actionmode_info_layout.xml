@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="12dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="6dp">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Contains"
+            android:fontFamily="sans-serif"
+            android:textColor="?attr/secTxtColor"
+            android:textSize="17sp"/>
+
+        <TextView
+            android:id="@+id/containsID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:textColor="?attr/secTxtColor"
+            android:textSize="17sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Total Size"
+            android:fontFamily="sans-serif"
+            android:textColor="?attr/secTxtColor"
+            android:textSize="17sp"/>
+
+        <TextView
+            android:id="@+id/totalSizeID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:textColor="?attr/secTxtColor"
+            android:textSize="17sp"/>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
