@@ -744,7 +744,8 @@ public class OpenFolderActivity extends AppCompatActivity implements OnFileListe
             List<Integer> sdCardSelectedList = new ArrayList<>();
             boolean result;
             for (int position : selectedFilePosition) {
-                selectedFile = Constant.currentFolderFiles.get(position).getFile().getAbsoluteFile();
+                FilesInfo filesInfo = Constant.currentFolderFiles.get(position);
+                selectedFile = filesInfo.getFile().getAbsoluteFile();
                 result = selectedFile.delete();
                 if (result) {
                     //remove file from memory
@@ -763,7 +764,7 @@ public class OpenFolderActivity extends AppCompatActivity implements OnFileListe
                     }
                 }else {
                     if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                        if (!selectedFile.getParent().equals("/storage/emulated/0")) {
+                        if (!filesInfo.getStorageType().equals("/storage/emulated/0")) {
 
                             List<UriPermission> permissions = getContentResolver().getPersistedUriPermissions();
                             if (permissions != null && permissions.size() > 0){
@@ -834,10 +835,12 @@ public class OpenFolderActivity extends AppCompatActivity implements OnFileListe
 
             adapter.notifyDataSetChanged();
         } else {
-            selectedFile = Constant.currentFolderFiles.get(videoPosition).getFile().getAbsoluteFile();
+            FilesInfo filesInfo = Constant.currentFolderFiles.get(videoPosition);
+            selectedFile = filesInfo.getFile().getAbsoluteFile();
+
 
             if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                if (!selectedFile.getParent().equals("/storage/emulated/0")) {
+                if (!filesInfo.getStorageType().equals("/storage/emulated/0")) {
                     List<UriPermission> permissions = getContentResolver().getPersistedUriPermissions();
                     if (permissions != null && permissions.size() > 0) {
                         sdCardUri = permissions.get(0).getUri();
@@ -1003,11 +1006,6 @@ public class OpenFolderActivity extends AppCompatActivity implements OnFileListe
                 // Must do it otherwise you will end up with showing an empty
                 // ImageView if you are getting your URLs from MediaStore.
 
-//                            Uri contentUri = FileProvider.getUriForFile(this,
-//                                    this.getApplicationContext().getPackageName() + ".fileprovider", selectedFile);
-//                            getContentResolver().delete(contentUri , null, null);
-//
-
 
                 getApplicationContext().sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.fromFile(selectedFile)));
 //                              Methods.removeMedia(this,selectedFile.getPath());
@@ -1080,7 +1078,7 @@ public class OpenFolderActivity extends AppCompatActivity implements OnFileListe
 
                     for (String path: allPath){
                         directory = new File(path);
-                        Methods.refresh_Directory_Files(directory);
+                        Methods.refresh_Directory_Files(directory, directory.toString());
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

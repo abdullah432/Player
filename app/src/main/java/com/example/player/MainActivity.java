@@ -30,6 +30,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.Toolbar;
 
+import android.os.Environment;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -653,7 +655,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
 
                     for (String path : allPath) {
                         directory = new File(path);
-                        Methods.refresh_Directory_Files(directory);
+                        Methods.refresh_Directory_Files(directory, directory.toString());
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -730,7 +732,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
 
                 for (String path : allPath) {
                     directory = new File(path);
-                    Methods.update_Directory_Files(directory);
+                    Methods.update_Directory_Files(directory, directory.toString());
                 }
 
                 adapter.notifyDataSetChanged();
@@ -791,7 +793,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
                             }
                         } else {
                             if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                                if (!selectedFile.getParent().equals("/storage/emulated/0")) {
+                                if (!file.getStorageType().equals("/storage/emulated/0")) {
 
                                     List<UriPermission> permissions = getContentResolver().getPersistedUriPermissions();
                                     if (permissions != null && permissions.size() > 0){
@@ -876,7 +878,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
         } else if (Constant.SORT_TYPE == 2) {
             if (callFromActionMode) {
                 for (int position : selectedList) {
-                    selectedFile = Constant.allMemoryVideoList.get(position).getFile().getAbsoluteFile();
+                    FilesInfo filesInfo = Constant.allMemoryVideoList.get(position);
+                    selectedFile = filesInfo.getFile().getAbsoluteFile();
                     result = selectedFile.delete();
                     if (result) {
                         //remove file from memory
@@ -901,7 +904,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
                         //selectedList.remove(position);
 
                         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                            if (!selectedFile.getParent().equals("/storage/emulated/0")) {
+                            if (!filesInfo.getStorageType().equals("/storage/emulated/0")) {
 
                                 List<UriPermission> permissions = getContentResolver().getPersistedUriPermissions();
                                 if (permissions != null && permissions.size() > 0){
@@ -972,10 +975,11 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
 
                 adapter.notifyDataSetChanged();
             } else {
-                selectedFile = Constant.allMemoryVideoList.get(fPosition).getFile().getAbsoluteFile();
+                FilesInfo file = Constant.allMemoryVideoList.get(fPosition);
+                selectedFile = file.getFile().getAbsoluteFile();
 
                 if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    if (!selectedFile.getParent().equals("/storage/emulated/0")) {
+                    if (!file.getStorageType().equals("/storage/emulated/0")) {
                         List<UriPermission> permissions = getContentResolver().getPersistedUriPermissions();
                         if (permissions != null && permissions.size() > 0) {
                             sdCardUri = permissions.get(0).getUri();
@@ -1227,7 +1231,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
 
                     for (String path: allPath){
                         directory = new File(path);
-                        Methods.update_Directory_Files(directory);
+                        Methods.update_Directory_Files(directory, directory.toString());
                     }
                 }
                 break;

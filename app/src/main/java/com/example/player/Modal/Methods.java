@@ -42,7 +42,7 @@ public class Methods {
     }
 
     // Retrieving files from memory
-    public static void  update_Directory_Files(File directory) {
+    public static void  update_Directory_Files(File directory, String storageType) {
         //we can'nt do videoArrayList.clear(). Because method is called inside of method
         //clearing videoArrayList before call from MainActivity.java solve the problem
 
@@ -64,7 +64,7 @@ public class Methods {
                         }
                     }
                     if (!restricted_directory)
-                        update_Directory_Files(fileList[i]);
+                        update_Directory_Files(fileList[i], storageType);
                 }
                 else
                 {
@@ -117,7 +117,7 @@ public class Methods {
 
                                 //playbackPosition have value in percentage
                                 Constant.allMemoryVideoList.add(new FilesInfo(fileList[i],
-                                        directory,videoDuration, state, percentage));
+                                        directory,videoDuration, state, percentage, storageType));
 
                                 //directory portion
                                 currentDirectory = directory.getPath();
@@ -140,7 +140,7 @@ public class Methods {
                             }catch (Exception e){
                                 e.printStackTrace();
                                 Constant.allMemoryVideoList.add(new FilesInfo(fileList[i],
-                                        directory,videoDuration, FilesInfo.fileState.NOT_NEW, C.TIME_UNSET));
+                                        directory,videoDuration, FilesInfo.fileState.NOT_NEW, C.TIME_UNSET, storageType));
                             }
 
                         }
@@ -152,7 +152,7 @@ public class Methods {
 //        Constant.allFilesList = videoArrayList;
     }
 
-    public static void  refresh_Directory_Files(File directory) {
+    public static void  refresh_Directory_Files(File directory, String storageType) {
         //we can'nt do videoArrayList.clear(). Because method is called inside of method
         //clearing videoArrayList before call from MainActivity.java solve the problem
 
@@ -174,7 +174,7 @@ public class Methods {
                         }
                     }
                     if (!restricted_directory)
-                        refresh_Directory_Files(fileList[i]);
+                        refresh_Directory_Files(fileList[i], storageType);
                 }
                 else
                 {
@@ -204,13 +204,13 @@ public class Methods {
                                     state = FilesInfo.fileState.NEW;
 
                                     Constant.allMemoryVideoList.add(new FilesInfo(fileList[i],
-                                            directory, videoDuration, state, playbackPosition));
+                                            directory, videoDuration, state, playbackPosition, storageType));
 
                                     //if user open file and then refresh. New file belong to this folder should be added their
                                     if (!Constant.currentFolderFiles.isEmpty()){
                                         if (Constant.currentFolderFiles.get(0).getDirectory().equals(directory)){
                                             Constant.currentFolderFiles.add(new FilesInfo(
-                                                    fileList[i],directory,videoDuration,state,playbackPosition
+                                                    fileList[i],directory,videoDuration,state,playbackPosition, storageType
                                             ));
                                         }
                                     }

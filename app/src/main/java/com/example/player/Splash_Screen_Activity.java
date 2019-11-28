@@ -32,7 +32,7 @@ public class Splash_Screen_Activity extends AppCompatActivity {
 
         for (String path: allPath){
             directory = new File(path);
-            Methods.update_Directory_Files(directory);
+            Methods.update_Directory_Files(directory, directory.toString());
         }
 
 //        directory = new File(Environment.getExternalStorageDirectory().getAbsolutePath());
