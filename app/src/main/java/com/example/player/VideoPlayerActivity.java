@@ -1294,9 +1294,9 @@ public class VideoPlayerActivity extends AppCompatActivity implements View.OnCli
             //If the width is bigger then the height then it means that the video was taken in landscape mode and we should set the orientation to landscape
             if (videoWidth > videoHeight) {
                 //Set orientation to landscape
-                this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+                this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
             }
-            //If the width is smaller then the height then it means that the video was taken in portrait mode and we should set the orientation to portrait
+            //If the width is smaller then the height then it means that the videhjjo was taken in portrait mode and we should set the orientation to portrait
             if (videoWidth < videoHeight) {
                 //Set orientation to portrait
                 this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
